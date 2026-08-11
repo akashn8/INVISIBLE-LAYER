@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE INVISIBLE LAYER · How Space Powers the World's 24 Hours</title>
+<meta name="description" content="Every day, 8 billion people live their lives powered by an invisible space infrastructure they never see. This is that story.">
+<meta name="theme-color" content="#0B0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='%235EFFB3' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%2300B4D8'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%235EFFB3'/%3E%3Ccircle cx='72' cy='40' r='2' fill='%235EFFB3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/tab1-hero.css">
+<link rel="stylesheet" href="css/tab2-day.css">
+<link rel="stylesheet" href="css/tab3-bridge.css">
+<link rel="stylesheet" href="css/tab4-without.css">
+<link rel="stylesheet" href="css/tab5-games.css">
+<link rel="stylesheet" href="css/tab6-reflect.css">
+</head>
+<body>
+
+<!-- Boot Sequence -->
+<div id="boot">
+  <div class="line" id="b1">&gt; SCANNING 18,560 ACTIVE SATELLITES…</div>
+  <div class="line" id="b2">&gt; STAND BY<span class="cursor"></span></div>
+</div>
+
+<!-- Tab Navigation -->
+<nav class="tab-nav" id="tab-nav" aria-label="Main navigation">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="hero" aria-selected="true">
+      <span class="tab-icon">🛰️</span>
+      <span class="tab-label">THE LAYER</span>
+    </button>
+    <button class="tab-btn" data-tab="day" aria-selected="false">
+      <span class="tab-icon">⏰</span>
+      <span class="tab-label">YOUR DAY</span>
+    </button>
+    <button class="tab-btn" data-tab="bridge" aria-selected="false">
+      <span class="tab-icon">💰</span>
+      <span class="tab-label">THE SCALE</span>
+    </button>
+    <button class="tab-btn" data-tab="without" aria-selected="false">
+      <span class="tab-icon">⚠️</span>
+      <span class="tab-label">WITHOUT</span>
+    </button>
+    <button class="tab-btn" data-tab="games" aria-selected="false">
+      <span class="tab-icon">🎮</span>
+      <span class="tab-label">PLAY</span>
+    </button>
+    <button class="tab-btn" data-tab="reflect" aria-selected="false">
+      <span class="tab-icon">🔭</span>
+      <span class="tab-label">REFLECT</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Progress Rail -->
+<div id="progress-rail"><div id="progress-fill"></div></div>
+
+<!-- Global animated starfield (behind all tabs) -->
+<canvas id="global-starfield" aria-hidden="true"></canvas>
+
+<!-- Tab Panels -->
+<main>
+  <section class="tab-panel active" id="panel-hero" role="tabpanel" aria-label="The Invisible Layer - Live satellite tracking radar showing 18,560+ active satellites orbiting Earth"></section>
+  <section class="tab-panel" id="panel-day" role="tabpanel" aria-label="24 Hours - How the world spends its day, data from OECD and BLS"></section>
+  <section class="tab-panel" id="panel-bridge" role="tabpanel" aria-label="Powered By Space - How every daily activity depends on satellite infrastructure"></section>
+  <section class="tab-panel" id="panel-without" role="tabpanel" aria-label="One Day Without - What happens when satellites go dark"></section>
+  <section class="tab-panel" id="panel-games" role="tabpanel" aria-label="Interactive games - Space Guardian"></section>
+  <section class="tab-panel" id="panel-reflect" role="tabpanel" aria-label="Reflect - Observer Log and Conclusion"></section>
+</main>
+
+<!-- Secret Locks (bottom-left, always visible) -->
+<div class="secret-locks-wrap">
+  <div class="secret-locks-label" id="locks-label">🔍 5 SECRETS AWAIT — CLICK, EXPLORE, DISCOVER</div>
+  <div class="secret-locks" id="secret-locks">
+  <div class="secret-lock" data-idx="0" data-hint="THE LAYER: Everything orbits around something..."><span class="lock-icon">🔒</span></div>
+  <div class="secret-lock" data-idx="1" data-hint="YOUR DAY: The last hour hides something..."><span class="lock-icon">🔒</span></div>
+  <div class="secret-lock" data-idx="2" data-hint="THE SCALE: 54% belongs to one..."><span class="lock-icon">🔒</span></div>
+  <div class="secret-lock" data-idx="3" data-hint="WITHOUT: Watch everything fall..."><span class="lock-icon">🔒</span></div>
+  <div class="secret-lock" data-idx="4" data-hint="PLAY: Score 1000+ to prove yourself..."><span class="lock-icon">🔒</span></div>
+</div>
+</div>
+
+<!-- Sources & Methodology (collapsed) -->
+<footer class="data-footer" id="data-footer">
+  <div class="footer-inner">
+    <button type="button" id="genai-toggle" class="footer-genai-btn" aria-expanded="false">📋 SOURCES & METHODOLOGY</button>
+  </div>
+  <div id="genai-panel" class="genai-panel" hidden>
+    <p><strong>Data Sources:</strong> <a href="https://www.oecd.org/en/data/datasets/time-use-database.html" target="_blank">OECD Time Use DB</a> · <a href="https://www.bls.gov/tus/" target="_blank">BLS ATUS 2025</a> · <a href="https://ourworldindata.org/time-use" target="_blank">Our World in Data</a> · <a href="https://www.ucsusa.org/resources/satellite-database" target="_blank">UCS Satellite Database</a> · <a href="https://api.nasa.gov/" target="_blank">NASA APIs</a> · <a href="https://celestrak.org/" target="_blank">CelesTrak</a> · <a href="https://www.rti.org/publication/economic-benefits-global-positioning-system" target="_blank">RTI International</a> · <a href="https://londoneconomics.co.uk/blog/publication/economic-impact-disruption-gnss/" target="_blank">London Economics</a> · <a href="https://www.euspa.europa.eu/european-space/euspace-market/gnss-market" target="_blank">European GNSS Agency</a> · <a href="https://satfleetlive.com/blogs/how-many-satellites-in-orbit/" target="_blank">SatFleetLive 2026 Count</a> · <a href="https://orbitalradar.com/how-many-satellites-in-orbit" target="_blank">Orbital Radar (July 2026)</a> · <a href="https://www.dhs.gov/cisa" target="_blank">DHS CISA</a> · <a href="https://www.nerc.com" target="_blank">NERC</a> · <a href="https://www.usda.gov/ers" target="_blank">USDA ERS</a> · <a href="https://www.nesdis.noaa.gov" target="_blank">NOAA NESDIS</a> · <a href="https://en.wikipedia.org/wiki/Starlink" target="_blank">Wikipedia Starlink</a></p>
+    <p><strong>Note on data coverage:</strong> Satellite population data from Orbital Radar (Aug 2026) and SatFleetLive (March 2026). Economic figures represent satellite-dependent activity estimates from government and institutional research — they measure economic activity that relies on satellite infrastructure, not value created by satellites alone. Time-use data from OECD/BLS surveys of high-income countries; regions with sparser survey coverage are underrepresented.</p>
+    <p><strong>Use of GenAI:</strong> Claude (Anthropic) was used to help draft and refactor the interaction code across all six tabs, structure the satellite-to-economy data mapping in "The Scale" tab, build the Space Guardian game engine, and edit/tighten copy for the timeline stories and blackout narratives. All statistics were manually checked against the cited sources above.</p>
+    <p style="margin-top:8px;font-size:10px;opacity:0.6;">Built for Analyticon Viz Con 2026 · Theme: "How the World Lives, Thrives, and Connects"</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/boot.js"></script>
+<script src="js/tabs.js"></script>
+<script src="js/tab1-hero.js"></script>
+<script src="js/tab2-day.js"></script>
+<script src="js/tab3-bridge.js"></script>
+<script src="js/tab4-without.js"></script>
+<script src="js/earth-data.js"></script>
+<script src="js/tab5-games.js"></script>
+<script src="js/tab6-reflect.js"></script>
+<script>
+(function() {
+  var btn = document.getElementById('genai-toggle');
+  var panel = document.getElementById('genai-panel');
+  if (btn && panel) {
+    btn.addEventListener('click', function() {
+      var isHidden = panel.hasAttribute('hidden');
+      if (isHidden) { panel.removeAttribute('hidden'); btn.setAttribute('aria-expanded', 'true'); }
+      else { panel.setAttribute('hidden', ''); btn.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+})();
+// Global: close info cards when clicking outside them
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.map-info-card') && !e.target.closest('.map-bubble') &&
+      !e.target.closest('.owner-info-card') && !e.target.closest('.owner-block[data-owner]') &&
+      !e.target.closest('.growth-info-card') && !e.target.closest('.growth-bar-wrap') &&
+      !e.target.closest('.wo-vuln-card') && !e.target.closest('.wo-vuln-row') &&
+      !e.target.closest('.lock-panel') && !e.target.closest('.sat-blip')) {
+    document.querySelectorAll('.map-info-card, .owner-info-card, .growth-info-card').forEach(function(c) { c.classList.add('hidden'); });
+    document.querySelectorAll('.wo-vuln-card').forEach(function(c) { c.remove(); });
+    var lockPanel = document.getElementById('lock-panel');
+    if (lockPanel) lockPanel.classList.remove('visible');
+    document.querySelectorAll('.sat-blip.locked').forEach(function(b) { b.classList.remove('locked'); });
+  }
+});
+</script>
+</body>
+</html>
